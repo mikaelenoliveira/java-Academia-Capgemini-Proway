@@ -1,0 +1,53 @@
+
+public class aula {
+	String nome;
+	//Tipos primitivos (Não são classes)
+	int idade;
+	float peso;
+	double altura;
+	boolean ativo;
+	char sexo; 
+	
+	//Tipos compostos = Classes wrappers
+	Integer idade1;
+	Float peso1;
+	Double altura1;
+	Boolean ativo1;
+	
+	
+	
+	
+	public static void main(String[] args) {
+		/*//Integer n1 = 0 ;
+		//Integer n2 = 0;
+		int n1 = 0;
+		int n2 = 0;
+		String sn1 = "10";
+		String sn2 = "20";
+		
+		
+		//n1 = n1.parseInt(sn1);
+		//n2 = n2.parseInt(sn2); 
+		n1 = Integer.parseInt(sn1)
+		n2 = Integer.parseInt(sn2)
+		
+				
+		Integer res = n1 + n2;
+		
+		System.out.println("Hello World");
+		System.out.println(res);*/
+		
+		String descricao = "Feijão";
+		System.out.print(descricao);
+	}
+	
+	public void teste() {
+		idade = Integer.parseInt("10");
+		peso = 98.5f;
+		altura = 1.75;
+		
+		
+	}
+	
+
+}

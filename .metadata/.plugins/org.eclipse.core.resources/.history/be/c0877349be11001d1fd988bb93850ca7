@@ -1,0 +1,9 @@
+package aula;
+
+public class EntendendoArrays {
+	public static void main(String[] args) {
+		String[] cars = {"Fusca","Brasilia","Kombi", "Corcel", "Del rey"}
+		
+	}
+
+}

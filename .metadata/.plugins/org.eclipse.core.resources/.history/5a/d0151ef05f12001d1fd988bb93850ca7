@@ -1,0 +1,33 @@
+package poo;
+
+public class Poo {
+	public static void main(String[] args) {
+		Carro c1 = new Carro();
+		c1.placa = "abc-1234";
+		c1.marca = "chevrolet";
+		c1.modelo = "corsa";
+		
+		System.out.println(c1.toString());
+		
+		Carro c2 = new Carro();
+		c2.placa = "def-3456";
+		c2.marca = "Ford";
+		c2.modelo = "Del Rey";
+		
+		System.out.println(c2.toString());
+		
+		Carro c3 = new Carro("cpt-5436");
+		c3.marca = "Jeep";
+		System.out.println(c3.toString());
+		
+		Carro c4 = new Carro("LZZ-1976", "Volks", "Fusca");
+		
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+
+}

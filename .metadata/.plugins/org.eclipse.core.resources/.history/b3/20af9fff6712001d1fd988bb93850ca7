@@ -1,0 +1,10 @@
+package ex_poo;
+
+public class Pessoa {
+	String nome;
+	String fone;
+	String email;
+	Double peso;
+	Double altura;
+
+}

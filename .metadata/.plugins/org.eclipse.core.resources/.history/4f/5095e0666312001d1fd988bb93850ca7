@@ -1,0 +1,26 @@
+package poo;
+
+public class Carro {
+	String placa;
+	String marca;
+	String modelo;
+	
+	public String toString() {
+		return "Placa:" + this.placa + "\nMarca:" + this.marca + "\nModelo:" + this.modelo + "\n";
+}
+
+	public Carro(String placa, String marca, String modelo) {
+		
+		this.placa = placa;
+		this.marca = marca;
+		this.modelo = modelo;
+	}
+
+	public Carro(String placa) {
+			this.placa = placa;
+	}
+
+	public Carro() {
+		
+	}
+}

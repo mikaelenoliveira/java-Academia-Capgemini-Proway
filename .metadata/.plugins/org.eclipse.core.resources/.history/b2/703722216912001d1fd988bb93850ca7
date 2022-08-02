@@ -1,0 +1,32 @@
+package ex_poo;
+
+public class Pessoa {
+	String nome;
+	String fone;
+	String email;
+	Double peso;
+	Double altura;
+	
+	public void calcularIMC(peso, altura) {
+		Double imc = peso/altura**2;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", fone=" + fone + ", email=" + email + ", peso=" + peso + ", altura=" + altura
+				+ "]";
+	}
+	public Pessoa(String nome, String fone, String email, Double peso, Double altura) {
+		
+		this.nome = nome;
+		this.fone = fone;
+		this.email = email;
+		this.peso = peso;
+		this.altura = altura;
+	}
+	public Pessoa() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

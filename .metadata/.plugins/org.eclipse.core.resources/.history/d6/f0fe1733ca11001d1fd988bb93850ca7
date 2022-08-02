@@ -1,0 +1,32 @@
+package aula;
+
+import java.util.ArrayList;
+
+public class Listas {
+	public static void main(String[] args) {
+		listaArray();
+	}
+
+	static void listaArray() {
+		ArrayList<String> carros = new ArrayList<>();
+		carros.add("Fusca");
+		carros.add("Kombi");
+		carros.add("Del Rey");
+		carros.add("BMV");
+		
+		displayDadosLista(carros);
+		
+		carros.set(1, "Brasilia");
+		displayDadosLista(carros);
+		
+		carros.remove(1);
+		displayDadosLista(carros);
+		
+	}
+	static void displayDadosLista(ArrayList<String> x) {
+		for (int i = 0; i < x.size(); i++) {
+			System.out.println(x.get(i));
+		
+		}
+	}
+}

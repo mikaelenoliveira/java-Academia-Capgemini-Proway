@@ -1,0 +1,17 @@
+package ex_poo;
+
+public class Poo_pessoa {
+	public static void main(String[] args) {
+		Pessoa p1 = new Pessoa();
+		p1.nome = "Mikaelen";
+		p1.fone = "65 992820129";
+		p1.email = "mika@gmail.com";
+		p1.peso = 51.1;
+		p1.altura = 1.58;
+		
+		System.out.println(p1.toString());
+		
+		
+	}
+
+}

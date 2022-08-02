@@ -1,0 +1,12 @@
+package poo;
+
+public class Poo {
+	public static void main(String[] args) {
+		Carro c1 = new Carro();
+		c1.placa = "abc-1234";
+		c1.marca = "chevrolet";
+		c1.modelo = "corsa";
+		
+	}
+
+}

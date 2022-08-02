@@ -1,0 +1,15 @@
+package ex_poo;
+
+public class Pessoa {
+	String nome;
+	String fone;
+	String email;
+	Double peso;
+	Double altura;
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", fone=" + fone + ", email=" + email + ", peso=" + peso + ", altura=" + altura
+				+ "]";
+	}
+
+}
