@@ -1,0 +1,23 @@
+package heranca;
+
+public class Aves extends Animal {
+	String coloracaoPenas;
+	
+	public void display() {
+		super.display();
+		System.out.printf("\nColoração das penas: %s", this.coloracaoPenas);
+		
+	}
+
+	public Aves() {
+		
+	}
+
+	
+	public Aves(String especie, String raca, String coloracaoPenas) {
+		super(especie, raca);
+		this.coloracaoPenas = coloracaoPenas;
+	}
+
+	
+}

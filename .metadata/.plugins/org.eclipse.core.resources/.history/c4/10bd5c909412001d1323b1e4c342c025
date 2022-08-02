@@ -1,0 +1,23 @@
+package heranca;
+
+public class Mamifero extends Animal {
+	int mamas;
+	
+	public void display() {
+		System.out.println("=============");
+		super.display();
+		System.out.printf("Mamas: %s", this.mamas);
+		System.out.println("=============");
+	}
+
+
+	public Mamifero() {
+		
+	}
+
+	public Mamifero(String especie, String raca, int mamas) {
+		super(especie, raca);
+		this.mamas = mamas;
+	}
+
+}

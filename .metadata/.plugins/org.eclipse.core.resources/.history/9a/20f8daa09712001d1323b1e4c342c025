@@ -1,0 +1,15 @@
+package heranca;
+
+public class Aves extends Animal {
+	String coloracaoPenas;
+
+	public Aves(String especie, String raca, String coloracaoPenas) {
+		super(especie, raca);
+		this.coloracaoPenas = coloracaoPenas;
+	}
+
+	public Aves() {
+		
+	}
+
+}

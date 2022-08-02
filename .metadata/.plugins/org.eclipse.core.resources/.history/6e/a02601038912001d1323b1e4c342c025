@@ -1,0 +1,11 @@
+package heranca;
+
+public class Heranca {
+	public static void main(String[] args) {
+		Animal a1 = new Animal();
+		a1.especie = "Felino";
+		a1.raca = "Siamês";
+		System.out.printf("Especie: %s Raça: %s ", a1.especie, a1.raca);
+	}
+
+}

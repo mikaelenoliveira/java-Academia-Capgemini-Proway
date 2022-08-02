@@ -1,0 +1,20 @@
+package heranca;
+
+public class Animal {
+	String especie;
+	String raca;
+	
+	public void display() {
+		System.out.printf("Raça: %s \nEspecie: %s", this.raca, this.especie);
+	}
+
+	public Animal(String especie, String raca) {
+		this.raca = raca;
+		this.especie = especie;
+	}
+
+	public Animal() {
+		
+	}
+	
+}
