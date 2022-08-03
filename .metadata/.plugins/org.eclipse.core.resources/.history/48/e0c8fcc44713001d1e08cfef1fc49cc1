@@ -1,0 +1,8 @@
+package daoInterfaces.copy;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DaoCarro {
+	
+}

@@ -1,0 +1,19 @@
+package dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DaoCarro {
+	private List<Carro> carros = new ArrayList<>();
+	
+		
+	public boolean salvarCarro(Carro carro) {
+		carros.add(carro);
+		return true;
+	}
+	
+	public List<Carro> inserirCarro(Carro carro){
+		return carros;
+	}
+
+}

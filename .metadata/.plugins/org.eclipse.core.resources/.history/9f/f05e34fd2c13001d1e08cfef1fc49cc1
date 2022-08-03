@@ -1,0 +1,16 @@
+package dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DaoContato {
+	public List<Contato> consultaTodos(){
+		List<Contato> lista = new ArrayList()<>();
+		//escrever rotina para consultar do banco de dados e acrescentar na lista
+		}
+
+	public boolean salvar(Contato ct) {
+		//acessa o banco de dados
+		return true;
+	}
+}

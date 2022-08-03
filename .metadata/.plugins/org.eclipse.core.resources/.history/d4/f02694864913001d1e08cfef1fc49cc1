@@ -1,0 +1,13 @@
+package daoInterfaces.copy;
+
+import java.util.List;
+
+public interface ICrud<T> {
+	boolean salvar(T t);
+	boolean alterar(T t);
+	List<T> consultar();
+	T consultar(int id);
+	void excluir(int id);
+	
+	
+}

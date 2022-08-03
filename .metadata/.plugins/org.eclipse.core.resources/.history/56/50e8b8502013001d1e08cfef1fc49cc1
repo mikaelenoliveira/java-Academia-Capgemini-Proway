@@ -1,0 +1,14 @@
+package abstracao;
+
+public class Abstracao {
+	public static void main(String[] args) {
+		Animal a1 = new Porco();
+		a1.setRaca("piata")
+		a1.sleep();
+		a1.sound();
+	}
+	
+	static void listar (Porco x) {
+		System.out.println(x.getRaca());
+	}
+}

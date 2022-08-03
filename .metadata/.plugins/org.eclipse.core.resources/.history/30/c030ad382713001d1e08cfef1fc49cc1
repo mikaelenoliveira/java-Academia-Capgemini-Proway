@@ -1,0 +1,23 @@
+package interfaces;
+
+public class Animal implements IAnimal {
+
+	@Override
+	public void sound() {
+		System.out.println("oinc oinc");
+		
+	}
+
+	@Override
+	public void sleep() {
+		System.out.println("animal dormindo");
+		
+	}
+
+	@Override
+	public void sound(String x) {
+		System.out.println(x);
+		
+	}
+
+}

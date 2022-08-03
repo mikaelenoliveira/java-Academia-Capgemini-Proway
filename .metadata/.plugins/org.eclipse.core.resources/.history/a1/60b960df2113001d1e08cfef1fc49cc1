@@ -1,0 +1,11 @@
+package abstracao;
+
+public class Porco extends Animal {
+	
+	@Override
+	private void sound() {
+		System.out.println("oinc oinc");
+
+	}
+
+}
