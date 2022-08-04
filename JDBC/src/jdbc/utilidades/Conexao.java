@@ -22,6 +22,7 @@ public class Conexao {
 	}
 	
 	public static void fechar() {
+		con = null;
 		
 	}
 

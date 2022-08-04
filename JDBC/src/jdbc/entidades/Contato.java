@@ -18,6 +18,13 @@ public class Contato {
 		
 	}
 	
+	
+
+	@Override
+	public String toString() {
+		return "\n=====" + "\nContato \nid=" + id + ", \nnome=" + nome + ", \nfone=" + fone + ", \nemail=" + email;
+	}
+
 
 	public int getId() {
 		return id;
