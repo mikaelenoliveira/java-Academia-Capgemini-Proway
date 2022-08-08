@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+  <nav>
+    <div class="nav-wrapper">
+      <a th:href="@{/}" class="brand-logo"><img class="materialboxed" width="65" th:src="@{img/1491099.png}" /></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a th:href="@{/cadastroDog}">Cadastro</a></li>
+        <li><a th:href="@{/consultaDog}">Consulta</a></li>
+      </ul>
+    </div>
+  </nav>
+<body>
+<div class="container">
+	<h4>Insira os dados do doguinho que irá para adoção</h4>
+	<form th:action="@{/cadastroDog}" method="post">
+	
+	
+		<label for="idnome">Nome</label>
+		<input type="text" placeholder="Informe nome" name="nome">
+		
+		<label for="idraca">Raça</label>
+		<input type="text" placeholder="Informe a raça do doguinho" name="raca">
+		
+		<label for="ididade">Idade</label>
+		<input type="text" placeholder="Informe a idade do doguinho" name="idade">
+		
+		
+		<button class="btn waves-effect light-blue">Salvar</button>
+		
+	</form>
+	</div>
+</body>

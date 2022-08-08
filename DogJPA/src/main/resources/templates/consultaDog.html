@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+  <nav>
+    <div class="nav-wrapper">
+      <a th:href="@{/}" class="brand-logo"><img class="materialboxed" width="65" th:src="@{img/1491099.png}" /></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a th:href="@{/cadastroDog}">Cadastro</a></li>
+        <li><a th:href="@{/consultaDog}">Consulta</a></li>
+      </ul>
+    </div>
+  </nav>
+<body>
+	<div class="container">
+	<h1>Consulta</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Fone</th>
+				<th>Email</th>
+				<th>Ações</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="dog: ${dogs}">
+			<td th:text="*{dog.id}"/>
+			<td th:text="*{dog.nome}"/>
+			<td th:text="*{dog.raca}"/>
+			<td th:text="*{dog.idade}"/>
+			<td><a th:href="@{'/consultaDog/' +${dog.id}}">Editar</a></td>
+			<td><a th:href="@{'/delete/' +${dog.id}}">Excluir</a></td>
+			</tr>
+		</tdoby>	
+	</table>
+	
+	<a class="btn waves-effect light-blue" th:href="@{/cadastroDog}">Cadastre um novo doguinho</a>
+	
+	</div>
+</body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+  <nav>
+    <div class="nav-wrapper">
+      <a th:href="@{/}" class="brand-logo"><img class="materialboxed" width="65" th:src="@{img/1491099.png}" /></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a th:href="@{/cadastroDog}">Cadastro</a></li>
+        <li><a th:href="@{/consultaDog}">Consulta</a></li>
+      </ul>
+    </div>
+  </nav>
+        
+
+<body>
+<div class="container">
+<div class="row">
+    <div class="col s6 m6">
+      <div class="card">
+        <div class="card-image">
+          <img width="120" th:src="@{img/123456.png}" >
+                  </div>
+        <div class="card-content">
+          <p>Olá!!</p>
+          Meu nome é pipoca. Conheça nosso abrigo e adote um doguinho para ser seu amigo.
+        </div>
+        <div class="card-action">
+          <a class=" btn waves-effect light-blue"  th:href="@{/consultaDog}">Veja os doguinhos disponiveis para adoção</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+    <div class="col s6 m6">
+      <div class="card">
+        <div class="card-image">
+          <img width="200" th:src="@{img/456.png}" >
+                  </div>
+        <div class="card-content">
+          <p>Nos ajude. </p>
+          <p>Doe rações e alimentos para nossos doguinhos </p>
+          
+        </div>
+        <div class="card-action">
+          <a class=" btn waves-effect light-blue" th:href="@{/consultaDog}">Veja os doguinhos disponiveis para adoção</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+		
+	
+</div>
+</body>
