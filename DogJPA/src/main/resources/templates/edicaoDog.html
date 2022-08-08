@@ -16,20 +16,20 @@
   </nav>
 <body>
 <div class="container">
-	<h1>Edição dos dados do doguinho</h1>
+	<h4>Edição dos dados do doguinho</h4>
 	<form th:action="@{/cadastroDog}" method="post" th:object="${dog}">
 		<label>ID</label>
 		<input type="text" id="idnome" th:field="*{id}" readonly>
 	
 	
 		<label for="idnome">Nome</label>
-		<input type="text" placeholder="Informe nome" th:field="*{nome}">
+		<input type="text" placeholder="Informe nome" th:field="*{nome}" required>
 		
 		<label for="idraca">Raça</label>
-		<input type="text" placeholder="Informe a raça do doguinho" th:field="*{raca}">
+		<input type="text" placeholder="Informe a raça do doguinho" th:field="*{raca}" required>
 		
 		<label for="ididade">Idade</label>
-		<input type="text" placeholder="Informe a idade do doguinho" th:field="*{idade}">
+		<input type="text" placeholder="Informe a idade do doguinho" th:field="*{idade}" required>
 		
 		
 		<button class="btn waves-effect light-blue
