@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+	<div class="container">
+	<h1>Consulta</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Fone</th>
+				<th>Email</th>
+				<th>Ações</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="contato: ${contatos}">
+			<td th:text="*{contato.id}"/>
+			<td th:text="*{contato.nome}"/>
+			<td th:text="*{contato.fone}"/>
+			<td th:text="*{contato.email}"/>
+			<td><a th:href="@{'/consulta/' +${contato.id}}">Editar</a></td>
+			<td><a th:href="@{'/delete/' +${contato.id}}">Excluir</a></td>
+			</tr>
+		</tdoby>	
+	</table>
+	
+	<a class="btn waves-effect" th:href="@{/cadastro}">Cadastro</a>
+	
+	</div>
+</body>

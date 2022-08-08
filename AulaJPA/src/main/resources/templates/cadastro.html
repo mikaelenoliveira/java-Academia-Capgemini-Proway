@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+<div class="container">
+	<h1>Cadastro</h1>
+	<form th:action="@{/cadastro}" method="post">
+		<label for="idnome">Nome</label>
+		<input type="text" placeholder="Informe nome" name="nome">
+		
+		<label for="idfone">Fone</label>
+		<input type="text" placeholder="Informe telefone" name="fone">
+		
+		<label for="idemail">E-mail</label>
+		<input type="text" placeholder="Informe o E-mail" name="email">
+		
+		
+		<button class="btn waves-effect">Salvar</button>
+		
+	</form>
+	</div>
+</body>
