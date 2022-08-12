@@ -1,9 +1,0 @@
-package dao;
-
-public class Dao {
-	public static void main(String[] args) {
-		Contato ct1 = new Contato("Ana", "ana@gmail.com");
-		
-	}
-
-}

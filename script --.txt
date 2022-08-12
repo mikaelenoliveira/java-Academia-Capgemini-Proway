@@ -1,0 +1,45 @@
+-- CREATE TABLE cliente (
+-- idcliente serial PRIMARY KEY,
+-- razaosocial varchar(40),
+-- cpf varchar(14)
+-- );
+
+-- CREATE TABLE categoria (
+-- idcategoria serial PRIMARY KEY,
+-- descricao varchar(40)
+-- );
+
+-- CREATE TABLE produto (
+-- idproduto serial PRIMARY KEY,
+-- idcategoria int,
+-- descricao varchar(40),
+-- preco float,
+-- estoque float,
+-- FOREIGN KEY(idcategoria) REFERENCES categoria (idcategoria)
+-- );
+
+-- CREATE TABLE carrinho (
+-- idproduto int,
+-- idvenda int,
+-- quantidade float,
+-- preco float,
+-- FOREIGN KEY(idproduto) REFERENCES produto (idproduto)
+-- );
+
+-- CREATE TABLE venda (
+-- idvenda serial PRIMARY KEY,
+-- idcliente int,
+-- FOREIGN KEY(idcliente) REFERENCES cliente (idcliente)
+-- );
+
+-- ALTER TABLE carrinho ADD FOREIGN KEY(idvenda) REFERENCES venda (idvenda);
+
+-- ALTER TABLE produto ADD COLUMN estoque FLOAT;
+
+-- ALTER TABLE venda ADD COLUMN status char;
+
+-- ALTER TABLE venda drop column status
+
+--DDL - DATA DEFINITION LANGUAGE
+
+-- alter table venda add column data date;

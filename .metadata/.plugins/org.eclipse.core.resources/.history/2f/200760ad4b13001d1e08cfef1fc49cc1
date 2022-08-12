@@ -1,6 +1,0 @@
-package daoInterfaces.copy;
-
-public class Pessoa {
-	String nome;
-
-}
