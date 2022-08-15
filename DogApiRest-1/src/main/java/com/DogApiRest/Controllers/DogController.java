@@ -1,5 +1,7 @@
 package com.DogApiRest.Controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DogApiRest.Entidades.Dog;
-import com.DogApiRest.Repository.DogRepository;
+import com.DogApiRest.service.DogService;
 
 @RestController
 @RequestMapping
 public class DogController {
 
 	@Autowired
-	DogRepository repo;
+	DogService service;
 
 	@GetMapping("/")
 	public String xpto() {
@@ -28,40 +30,33 @@ public class DogController {
 	}
 
 	@GetMapping("/dogs")
-	public ResponseEntity<Iterable<Dog>> getDogs() {
-		Iterable<Dog> dogs = repo.findAll();
+	public ResponseEntity<List<Dog>> getDogs() {
+		List<Dog> dogs = service.consultarDogs();
 		return ResponseEntity.status(HttpStatus.OK).body(dogs);
 	}
 
 	@GetMapping("/dogs/{iddog}")
 	public ResponseEntity<Dog> getDogById(@PathVariable("iddog") Long iddog) {
-		java.util.Optional<Dog> dog = repo.findById(iddog);
-		return dog.isPresent() ? ResponseEntity.ok(dog.get()) : ResponseEntity.notFound().build();
+		return ResponseEntity.ok(service.consultarDogPorId(iddog));
 
 	}
 
 	@PostMapping("/dogs")
 	public ResponseEntity<Dog> saveDog(@RequestBody Dog dog) {
-		Dog dg = repo.save(dog);
+		Dog dg = service.salvar(dog);
 		return ResponseEntity.status(HttpStatus.CREATED).body(dg);
 	}
 
 	@DeleteMapping("/dogs/{iddog}")
 	public ResponseEntity<Void> deleteDog(@PathVariable("iddog") Long iddog) {
-		repo.deleteById(iddog);
+		service.excluirDog(iddog);
 		return ResponseEntity.noContent().build();
 
 	}
 
 	@PutMapping("/dogs/{iddog}")
-	public ResponseEntity<Dog> alteraDog(@PathVariable("iddog") Long iddog, @RequestBody Dog dog) {
-		java.util.Optional<Dog> dogs = repo.findById(iddog);
-		if (!dogs.isPresent()) {
-			return ResponseEntity.notFound().build();
-		}
-		dog.setId(iddog);
-		repo.save(dog);
-		return ResponseEntity.ok(dog);
+	public ResponseEntity<Dog> alteraDog(@PathVariable("iddog") Long iddog, @RequestBody Dog dog){
+		return ResponseEntity.ok(service.alterarDog(iddog, dog));
 	}
 
 }

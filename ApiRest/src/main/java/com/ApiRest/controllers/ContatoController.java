@@ -1,5 +1,6 @@
 package com.ApiRest.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ApiRest.entidades.Contato;
 import com.ApiRest.repository.ContatoRepository;
+import com.ApiRest.services.ContatoService;
 
 @RestController
 @RequestMapping
 public class ContatoController {
-	
+		
 	@Autowired
-	ContatoRepository repo;
+	ContatoService service;
 	
 	@GetMapping("/")
 	public String xpto() {
@@ -30,28 +32,26 @@ public class ContatoController {
 	}
 	
 	@GetMapping("/contatos")
-	public ResponseEntity<Iterable<Contato>> getContatos() {
-		Iterable<Contato> contatos = repo.findAll();
+	public ResponseEntity<List<Contato>> getContatos() {
+		List<Contato> contatos = service.consultarContatos();
 		return ResponseEntity.status(HttpStatus.OK).body(contatos);		
 	}
 	
 	@GetMapping("/contatos/{idcontato}")
 	public ResponseEntity<Contato> getContatoById(@PathVariable("idcontato") Long idcontato) {
-		//return ResponseEntity.status(HttpStatus.OK).body(repo.findById(idcontato).get());	
-		Optional<Contato> contato = repo.findById(idcontato);
-		return contato.isPresent() ? ResponseEntity.ok(contato.get()) : ResponseEntity.notFound().build();
+		return ResponseEntity.ok(service.consultarContatoPorId(idcontato));
 	}
 	
 	@PostMapping("/contatos")
 	public ResponseEntity<Contato> saveContato(@RequestBody Contato contato) {
-		Contato ct = repo.save(contato);
+		Contato ct = service.salvar(contato);
 		return ResponseEntity.status(HttpStatus.CREATED).body(ct);
 	}
 	
 	
 	@DeleteMapping("/contatos/{idcontato}")
 	public ResponseEntity<Void> deleteContato(@PathVariable("idcontato") Long idcontato) {
-		repo.deleteById(idcontato);
+		service.excluirContato(idcontato);
 		return ResponseEntity.noContent().build();
 	
 	}
@@ -59,8 +59,6 @@ public class ContatoController {
 	@PutMapping("/contatos/{idcontato}")
 	public ResponseEntity<Contato> alteraContato(@PathVariable("idcontato") Long idcontato, 
 			@RequestBody Contato contato) {
-		contato.setId(idcontato);
-		Contato response = repo.save(contato);
-		return ResponseEntity.status(HttpStatus.OK).body(response);
+			return ResponseEntity.ok(service.alterarContato(idcontato, contato));
 	}
 }
