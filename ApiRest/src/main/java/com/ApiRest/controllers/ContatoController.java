@@ -1,7 +1,8 @@
 package com.ApiRest.controllers;
 
 import java.util.List;
-import java.util.Optional;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ApiRest.entidades.Contato;
-import com.ApiRest.repository.ContatoRepository;
 import com.ApiRest.services.ContatoService;
+import com.ApiRest.services.dto.ContatoDTO;
 
 @RestController
 @RequestMapping
@@ -31,20 +32,26 @@ public class ContatoController {
 		return "Pagina de index";		
 	}
 	
+	@GetMapping("/contatos/email/{email}")
+	public ResponseEntity<List<ContatoDTO>> getContatoPorEmail(@PathVariable("email") String email){
+		return ResponseEntity.ok(service.consultarContatoPorEmail(email));
+	}
+	
+	
 	@GetMapping("/contatos")
-	public ResponseEntity<List<Contato>> getContatos() {
-		List<Contato> contatos = service.consultarContatos();
+	public ResponseEntity<List<ContatoDTO>> getContatos() {
+		List<ContatoDTO> contatos = service.consultarContatos();
 		return ResponseEntity.status(HttpStatus.OK).body(contatos);		
 	}
 	
 	@GetMapping("/contatos/{idcontato}")
-	public ResponseEntity<Contato> getContatoById(@PathVariable("idcontato") Long idcontato) {
+	public ResponseEntity<ContatoDTO> getContatoById(@PathVariable("idcontato") Long idcontato) {
 		return ResponseEntity.ok(service.consultarContatoPorId(idcontato));
 	}
 	
 	@PostMapping("/contatos")
-	public ResponseEntity<Contato> saveContato(@RequestBody Contato contato) {
-		Contato ct = service.salvar(contato);
+	public ResponseEntity<ContatoDTO> saveContato(@Valid @RequestBody Contato contato) {
+		ContatoDTO ct = service.salvar(contato);
 		return ResponseEntity.status(HttpStatus.CREATED).body(ct);
 	}
 	
@@ -57,7 +64,7 @@ public class ContatoController {
 	}
 	
 	@PutMapping("/contatos/{idcontato}")
-	public ResponseEntity<Contato> alteraContato(@PathVariable("idcontato") Long idcontato, 
+	public ResponseEntity<ContatoDTO> alteraContato(@PathVariable("idcontato") Long idcontato, 
 			@RequestBody Contato contato) {
 			return ResponseEntity.ok(service.alterarContato(idcontato, contato));
 	}
