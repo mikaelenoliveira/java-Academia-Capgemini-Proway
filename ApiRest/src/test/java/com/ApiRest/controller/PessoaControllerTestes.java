@@ -1,9 +1,13 @@
 package com.ApiRest.controller;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -53,6 +57,9 @@ public class PessoaControllerTestes {
 		 
 		 Mockito.when(service.salvar(any())).thenReturn(pExistente);
 		 
+		 Mockito.when(service.alterar(eq(idExistente), any())).thenReturn(pExistente);
+		 Mockito.when(service.alterar(eq(idNaoExistente), any())).thenThrow(EntityNotFoundException.class);
+		 
 	}
 	
 	@Test
@@ -78,5 +85,27 @@ public class PessoaControllerTestes {
 				.accept(MediaType.APPLICATION_JSON));
 		result.andExpect(status().isCreated());
 	}
+	
+	@Test
+	public void retornaOkQuandoAltera() throws Exception {
+		String jsonBody = objectMapper.writeValueAsString(pExistente);
+		ResultActions result = mockMvc.perform(put("/pessoa/{idpessoa}", idExistente).content(jsonBody).contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON));
+		result.andExpect(status().isOk());
+	}
+	
+	@Test
+	public void retorna404QuandoAlteraInexistente() throws Exception {
+		String jsonBody = objectMapper.writeValueAsString(pNovo);
+		ResultActions result = mockMvc.perform(put("/pessoa/{idpessoa}", idNaoExistente).content(jsonBody).contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON));
+		result.andExpect(status().isNotFound());
+	}
+	
+	@Test
+	public void retornaListaConsultaTodos() throws Exception {
+		ResultActions result = mockMvc.perform(get("/pessoa"));
+		result.andExpect(status().isOk());
+		Mockito.when(service.consultarTodos()).thenReturn(new ArrayList<>());
+	}
+
 
 }

@@ -1,5 +1,6 @@
 package com.ApiRest.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
@@ -23,6 +24,17 @@ public class PessoaService {
 	
 	public Pessoa salvar(Pessoa pessoa) {
 		return repo.save(pessoa);
+	}
+	
+	public Pessoa alterar(Long idpessoa, Pessoa pessoa) {
+		Optional<Pessoa> obj = repo.findById(idpessoa);
+		Pessoa p = obj.orElseThrow(()-> new EntityNotFoundException("Pessoa não encontrada"));
+		p.setNome(pessoa.getNome());
+		return repo.save(p);
+	}
+	
+	public List<Pessoa> consultarTodos(){
+		return repo.findAll();
 	}
 
 }
